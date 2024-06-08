@@ -30,15 +30,17 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Courses addCourse(Courses course) {
+	if(course.getId()!=' '||course.getId()!=0) {
 		courseDao.save(course);// to save this course to DB
+	}
 		return course;
 	}
 
 	@Override
 	public Courses updateCourse(Courses templist) {
-		if(templist.getId()!=0)
-		{
-			courseDao.save(templist);
+	
+		if(templist.getId()!=' '||templist.getId()!=0) {
+			courseDao.save(templist);// to save this course to DB
 		}
 		//these is no method for update so simply if we want update we just save(),
 //		save(), first check if data with id is exist or not if exist then replace esle create new.
